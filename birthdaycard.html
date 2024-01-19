@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Template</title>
+<style>
+    body{
+        background-color: pink;
+        margin: auto;
+        width: 20%;
+    }
+
+</style>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Your task starts here
+    function BirthdayCard(){
+        const [recipientName, setRecipientName] = React.useState('');
+        const [customMessage, setCustomMessage] = React.useState('');
+        const [bgColor, setBgColor] = React.useState('');
+
+        const handleNameChange=(e) =>{
+            setRecipientName(e.target.value);
+
+            setBgColor(e.target.value.length > 5 ? 'lightgreen' : 'orange' );
+        };
+            const handleMessageChange = (e) =>{
+                setCustomMessage(e.target.value);
+            };
+            return(
+                <>
+                <h2>Birthday Card</h2>
+                <label>
+                    Recipient's Name:
+                    <input type="text" value={recipientName} onChange={handleNameChange} />
+                    </label>
+                    <br/><br/>
+                    <label>
+                        Custon Message:
+                        <input type="text" value={customMessage} onChange={handleMessageChange} />
+                        </label>
+                        <br/>
+                        <p>{`Happy Birthday, ${recipientName}! ${customMessage}`}</p>
+                </>
+            );
+    };
+    const App=() =>{
+        return(
+            <>
+            <BirthdayCard />
+            </>
+        )
+    }
+    
+
+    const reactRoot = ReactDOM.createRoot(document.getElementById('root'));
+    reactRoot.render(<App />)
+  </script>
+</html>

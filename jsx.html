@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>count react</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script type="text/babel">
+    // Code goes here
+    function JSXshowcase(){
+        const name = "Ishika Gupta";
+        const age = 23;
+
+        function greet(){
+            return "Hello, India!";
+        };
+
+        const hobbies =["Reading", "Sleeping", "Gaming", "Watching Movies"];
+        const isLoggedIn = true;
+        return(
+            <>
+            <h1>JSX Showcase</h1>
+            <p>This is a paragraph element rendered using JSX.</p>
+            <button>Click me</button>
+            <p>{`My name is ${name} and I'm ${age} years old.`} </p>
+            <p>{greet()}</p>
+            <ul>
+                {hobbies.map((hobby,index) =>(
+                    <li key ={index}>{hobby}</li>
+                ))}
+                </ul>
+                {isLoggedIn ? (
+                    <p>User is logged in.</p>
+                ) : (
+                    <p>User is not logged in.</p>
+                
+                )}
+            </>
+        )
+
+    }
+
+    const reactRoot = ReactDOM.createRoot(document.getElementById('root'));
+    reactRoot.render(<JSXshowcase />)
+    </script>    
+</html>
